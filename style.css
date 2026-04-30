@@ -1,0 +1,111 @@
+/* carsgasorelectric.com — dark, mobile-first, app-like */
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0b0d10;color:#e8ecf1;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+img{max-width:100%;display:block}
+a{color:#7cc4ff;text-decoration:none}
+a:hover{text-decoration:underline}
+button,input,select{font:inherit;color:inherit}
+
+:root{
+  --bg:#0b0d10;
+  --surface:#13171c;
+  --surface-2:#1a1f26;
+  --border:#252b33;
+  --muted:#9aa3ad;
+  --text:#e8ecf1;
+  --primary:#36e2a4;     /* electric green */
+  --primary-2:#1bbf85;
+  --accent:#ffb84d;      /* gas orange */
+  --danger:#ff6b6b;
+  --radius:14px;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+
+.container{width:100%;max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.85);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:700;letter-spacing:.2px}
+.brand-logo{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--primary),#0e8e63);color:#06140e;font-weight:900}
+.brand-name{font-size:15px}
+.brand .accent{color:var(--accent)}
+.brand .accent2{color:var(--primary)}
+.lang select{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:6px 10px;color:var(--text)}
+
+/* Hero */
+.hero{padding:24px 0 8px}
+.hero h1{font-size:clamp(22px,4.5vw,34px);margin:0 0 6px;line-height:1.2;letter-spacing:-.01em}
+.lede{color:var(--muted);margin:0 0 8px;max-width:62ch}
+
+/* Tabs */
+.tabs{display:flex;gap:6px;background:var(--surface);border:1px solid var(--border);padding:6px;border-radius:14px;margin:14px 0}
+.tab{flex:1;padding:10px 12px;border:0;background:transparent;color:var(--muted);border-radius:10px;cursor:pointer;font-weight:600;font-size:14px}
+.tab.active{background:var(--surface-2);color:var(--text);box-shadow:inset 0 0 0 1px var(--border)}
+
+/* Panels */
+.panel{display:none}
+.panel.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* Grid + cards */
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
+.grid-4{grid-template-columns:repeat(2,1fr)}
+@media(min-width:760px){.grid-4{grid-template-columns:repeat(4,1fr)}}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.card h2{margin:0 0 12px;font-size:16px;letter-spacing:.2px}
+.card label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+.card input{width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:11px 12px;outline:none;transition:border-color .15s, box-shadow .15s}
+.card input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(54,226,164,.15)}
+
+/* Actions */
+.actions{display:flex;gap:10px;margin:16px 0 4px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#06140e;border:0;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;min-height:44px;flex:1}
+.btn-primary:hover{filter:brightness(1.05)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);padding:12px 18px;border-radius:12px;cursor:pointer;min-height:44px}
+
+/* KPIs */
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;gap:6px;min-height:84px;justify-content:center}
+.kpi-label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.kpi strong{font-size:20px;letter-spacing:-.01em}
+
+.verdict{margin-top:14px}
+.verdict.good{border-color:rgba(54,226,164,.35);background:linear-gradient(180deg,rgba(54,226,164,.08),var(--surface))}
+.verdict.bad{border-color:rgba(255,184,77,.35);background:linear-gradient(180deg,rgba(255,184,77,.08),var(--surface))}
+
+/* Charts */
+.chart-wrap{position:relative;width:100%;height:300px}
+@media(min-width:760px){.chart-wrap{height:360px}}
+
+/* Ad slot */
+.ad-slot{display:flex;align-items:center;justify-content:center;min-height:90px;margin:14px 0;border:1px dashed var(--border);border-radius:12px;color:var(--muted);font-size:12px;background:rgba(255,255,255,.02)}
+
+/* SEO content */
+.seo{margin:24px 0 40px;color:#cfd6df}
+.seo h2{font-size:18px;margin:18px 0 8px}
+.seo h3{font-size:15px;margin:14px 0 6px;color:var(--text)}
+.seo p{margin:0 0 8px;color:var(--muted)}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);background:#08090b;margin-top:20px}
+.foot{display:flex;flex-direction:column;gap:8px;padding:18px 16px;align-items:flex-start}
+.foot nav{display:flex;gap:14px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+@media(min-width:760px){.foot{flex-direction:row;justify-content:space-between;align-items:center}}
+
+/* Cookie banner */
+.cookie-banner{position:fixed;left:12px;right:12px;bottom:12px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);z-index:50}
+.cookie-banner p{margin:0;color:var(--muted);font-size:14px}
+@media(min-width:640px){.cookie-banner{flex-direction:row;align-items:center;justify-content:space-between;left:auto;right:16px;bottom:16px;max-width:560px}}
+
+/* Legal pages */
+.legal{padding:24px 0 60px}
+.legal h1{font-size:24px;margin:0 0 8px}
+.legal h2{font-size:16px;margin:18px 0 6px}
+.legal p,.legal li{color:var(--muted)}
+.legal ul{padding-left:20px}
+
+/* Prevent horizontal overflow */
+html,body{overflow-x:hidden}
